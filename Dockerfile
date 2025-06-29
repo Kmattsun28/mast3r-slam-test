@@ -48,12 +48,12 @@ RUN git submodule update --init --recursive
 
 
 # Install dependencies step by step for better error handling
-RUN pip install -e thirdparty/mast3r
+RUN conda run -n mast3r-slam pip install -e thirdparty/mast3r
 
-RUN pip install -e thirdparty/in3d
+RUN conda run -n mast3r-slam pip install -e thirdparty/in3d
 # RUN pip install --no-build-isolation -e .
     
-RUN pip install torchcodec==0.1
+RUN conda run -n mast3r-slam pip install torchcodec==0.1
 
 WORKDIR /
 CMD ["/bin/bash"]
